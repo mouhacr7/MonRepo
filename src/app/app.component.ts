@@ -28,8 +28,8 @@ export class MyApp {
       { title: 'Acceuil', component: HomePage },
       { title: 'Liste Médicaments', component: ListMedicamentPage },
       { title: 'Liste Pharmacies', component: ListPharmaciePage },
-      { title: 'infos', component: InfosPage },
-      { title: 'signaler médicament(s) frauduleux', component: SignalerPage }
+      { title: 'Infos', component: InfosPage },
+      { title: 'Signaler médicament(s) frauduleux', component: SignalerPage }
     ];
 
   }
