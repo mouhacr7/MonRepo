@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <h2>Welcome to barcode scanner</h2>
+  <button ion-button full round (click)="scan()">Start Scan</button>
+
+
+  <ion-list>
+    <ion-item>
+      <h1>cancelled : {{data.cancelled}}</h1>
+      <h1>format : {{data.format}}</h1>
+      <h1>text : {{data.text}}</h1>
+    </ion-item>
+  </ion-list>
+  <!-- Real floating action button, fixed. It will not scroll with the content -->
+  <ion-fab top right edge>
+    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-fab middle="" right="">
+    <button color="danger" ion-fab="" class="fab fab-md fab-md-danger"><ion-icon class="fab-close-icon icon icon-md ion-md-close" name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="add" role="img" class="icon icon-md ion-md-add" aria-label="add"></ion-icon></span><div class="button-effect" style="transform: translate3d(-57px, -32px, 0px) scale(1); height: 320px; width: 320px; opacity: 0; transition: transform 301ms, opacity 211ms 90ms;"></div></button>
+  </ion-fab>
+
+
+</ion-content>
+
+
