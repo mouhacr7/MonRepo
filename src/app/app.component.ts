@@ -7,8 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListMedicamentPage } from '../pages/list_medicaments/list_medicaments';
 import { ListPharmaciePage } from '../pages/list_pharmacie/list_pharmacie';
 import { InfosPage } from '../pages/infos/infos';
-import {SignalerPage} from "../pages/signaler/signaler";
-
+import { SignalerPage } from "../pages/signaler/signaler";
+import { AboutPage } from "../pages/about/about";
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +29,8 @@ export class MyApp {
       { title: 'Liste Médicaments', component: ListMedicamentPage },
       { title: 'Liste Pharmacies', component: ListPharmaciePage },
       { title: 'Infos', component: InfosPage },
-      { title: 'Signaler médicament(s) frauduleux', component: SignalerPage }
+      { title: 'Signaler médicament(s) frauduleux', component: SignalerPage },
+      { title: 'A propos de nous', component: AboutPage }
     ];
 
   }

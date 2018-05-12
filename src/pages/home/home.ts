@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController,ToastController } from 'ionic-angular';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 //import { Toast } from '@ionic-native/toast';
@@ -14,17 +14,19 @@ options:BarcodeScannerOptions;
 
 constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner, private toastcrtl :ToastController ) {
 
-  }
-  scan(){
+  } 6
+
+ scan(){ 
 
       this.options = {
-        torchOn : true,
+        torchOn : false,
         prompt:"Please scan your code",
         };
       this.barcodeScanner.scan(this.options).then((barcodeData) =>{
             // Success! Barcode data is here
-            console.log(barcodeData);
+            
             this.data = barcodeData;
+            console.log(barcodeData.text);
       },(err) => {
         this.toastcrtl.create({
           message : err.message

@@ -8,7 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { ListMedicamentPage } from '../pages/list_medicaments/list_medicaments';
 import { ListPharmaciePage } from '../pages/list_pharmacie/list_pharmacie';
 import { InfosPage } from '../pages/infos/infos';
-import {SignalerPage} from "../pages/signaler/signaler";
+import { SignalerPage } from "../pages/signaler/signaler";
+import { AboutPage } from "../pages/about/about";
 
 //Imports des tools de @ionic-native & @angular
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,6 +18,12 @@ import { HttpModule } from '@angular/http';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
 
+//Imports tools for Headers Http Modules
+// import { HttpBackend, HttpXhrBackend } from '@angular/common/http';
+// import { NativeHttpModule, NativeHttpBackend, NativeHttpFallback } from 'ionic-native-http-connection-backend';
+// import { Platform } from 'ionic-angular';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,12 +31,14 @@ import { Toast } from '@ionic-native/toast';
     ListMedicamentPage,
     ListPharmaciePage,
     InfosPage,
-    SignalerPage
+    SignalerPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,14 +47,17 @@ import { Toast } from '@ionic-native/toast';
     ListMedicamentPage,
     ListPharmaciePage,
     InfosPage,
-    SignalerPage
+    SignalerPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+   // {provide: HttpBackend, useClass: NativeHttpFallback, deps: [Platform, NativeHttpBackend, HttpXhrBackend]},
     BarcodeScanner,
     Toast,
+ 
 
   ]
 })

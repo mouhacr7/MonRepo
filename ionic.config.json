@@ -5,4 +5,11 @@
   "integrations": {
     "cordova": {}
   }
+  ,
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://192.168.0.17/sso/public/api"
+    }
+  ]
 }
