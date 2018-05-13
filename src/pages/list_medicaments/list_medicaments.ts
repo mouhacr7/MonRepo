@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
-
+import { NavController, NavParams } from "ionic-angular";
+import { IMedicament }  from "../../interface/IMedicament";
+import { InfosPage } from "../infos/infos";
+import { MedicamentsApiProvider } from "../../providers/medicaments-api/medicaments-api";
 
 @Component({
   selector: 'page-list_medicaments',
@@ -9,15 +10,19 @@ import { HTTP } from '@ionic-native/http';
 })
 export class ListMedicamentPage {
 
+  medicaments = new Array<IMedicament>();
 
-  constructor(private platform: Platform,
-    private nativeHttp: HTTP,) {
-      this.platform.ready().then(() => {
-        this.nativeHttp.get('http://localhost:8080/MyLara/public', {}, {})
-            .then(() => {
-                console.log('cordova-plugin-advanced-http is installed properly');
-            });
-    });
+constructor(public navCtrl: NavController, public navParams: NavParams , private medicamentsApiProvider: MedicamentsApiProvider
+) {}
+
+ionViewDidLoad() {
+  this.medicamentsApiProvider.getMedicaments().subscribe(data =>{
+    this.medicaments = data;
+  })
+}
+
+  goToDetail(medicaments: IMedicament) {
+    this.navCtrl.push(InfosPage, medicaments);
+
   }
-
 }

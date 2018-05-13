@@ -1,0 +1,281 @@
+[
+    {
+    "authorization_holder": "SANOFI AVENTIS FRANCE", 
+    "cis_code": "6 023 410 0", 
+    "composition": [
+      {
+        "components": {
+          "paracétamol": "1000 mg"
+        }, 
+        "quantity": "un comprimé", 
+        "type": "Comprimé"
+      }
+    ], 
+    "generic_groups": null, 
+    "iab": [
+      {
+        "abstract": "Le service médical rendu par ces spécialités reste important dans les indications de l'AMM.", 
+        "advice": null, 
+        "reason": "Renouvellement d'inscription (CT)", 
+        "value": "Important"
+      }
+    ], 
+    "iab_improvements": null, 
+    "id": 60234100, 
+    "presentations": [
+      {
+        "cip_codes": [
+          "359 558-3", 
+          "34009 359 558 3 8"
+        ], 
+        "marketing_start_date": "2003-01-02", 
+        "marketing_stop_date": null, 
+        "price": 195, 
+        "refund_rate": 65, 
+        "title": "plaquette(s) thermoformée(s) PVC-aluminium de 8  comprimé(s)"
+      }
+    ], 
+    "title": "DOLIPRANE 1000 mg, comprimé",
+    "poster_path" : "assets/imgs/doliprane.jpg"
+  },
+  {
+    "authorization_holder": "BRISTOL - MYERS SQUIBB", 
+    "cis_code": "6 326 463 6", 
+    "composition": [
+      {
+        "components": {
+          "paracétamol": "1 g"
+        }, 
+        "quantity": "un comprimé", 
+        "type": "Comprimé"
+      }
+    ], 
+    "generic_groups": null, 
+    "iab": [
+      {
+        "abstract": "Le service médical rendu par ces spécialités est important dans les indications de l’AMM.", 
+        "advice": "Avis du 19/05/2010", 
+        "reason": "Inscription (CT)", 
+        "value": "Important"
+      }
+    ], 
+    "iab_improvements": [
+      {
+        "abstract": "Ces spécialités sont des compléments de gamme qui n’apportent pas d’amélioration du service médical rendu (ASMR V).", 
+        "advice": "Avis du 19/05/2010", 
+        "reason": "Inscription (CT)", 
+        "value": "V (Inexistant)"
+      }
+    ], 
+    "id": 63264636, 
+    "presentations": [
+      {
+        "cip_codes": [
+          "352 910-3", 
+          "34009 352 910 3 5"
+        ], 
+        "marketing_start_date": "2010-08-31", 
+        "marketing_stop_date": null, 
+        "price": 19, 
+        "refund_rate": 65, 
+        "title": "tube(s) polypropylène de 8 comprimé(s)"
+      }
+    ], 
+    "title": "DAFALGAN 1 g, comprimé effervescent",
+    "poster_path" : "assets/imgs/dafalgan.jpg"
+  },
+  {
+    "authorization_holder": "BRISTOL - MYERS SQUIBB", 
+    "cis_code": "6 705 860 5", 
+    "composition": [
+      {
+        "components": {
+          "paracétamol": "1 g"
+        }, 
+        "quantity": "un comprimé", 
+        "type": "Comprimé"
+      }
+    ], 
+    "generic_groups": null, 
+    "iab": [
+      {
+        "abstract": "Le service médical rendu par ces spécialités reste important dans les indications de l'AMM.", 
+        "advice": null, 
+        "reason": "Renouvellement d'inscription (CT)", 
+        "value": "Important"
+      }
+    ], 
+    "iab_improvements": null, 
+    "id": 67058605, 
+    "presentations": [
+      {
+        "cip_codes": [
+          "352 917-8", 
+          "34009 352 917 8 3"
+        ], 
+        "marketing_start_date": "2000-05-02", 
+        "marketing_stop_date": null, 
+        "price": 202, 
+        "refund_rate": 65, 
+        "title": "tube(s) polypropylène de 8 comprimé(s)"
+      }
+    ], 
+    "title": "EFFERALGAN 1 g, comprimé effervescent",
+    "poster_path" : "assets/imgs/efferalgan.jpg"
+  },
+  {
+    "authorization_holder": "SANOFI AVENTIS FRANCE", 
+    "cis_code": "6 116 294 2", 
+    "composition": [
+      {
+        "components": {
+          "acide acétylsalicylique": "500 mg"
+        }, 
+        "quantity": "un sachet - dose de 1023 mg", 
+        "type": "Poudre"
+      }
+    ], 
+    "generic_groups": null, 
+    "iab": [
+      {
+        "abstract": "Le service médical rendu par ces spécialités reste important dans les indications de l'AMM.", 
+        "advice": null, 
+        "reason": "Renouvellement d'inscription (CT)", 
+        "value": "Important"
+      }
+    ], 
+    "iab_improvements": null, 
+    "id": 61162942, 
+    "presentations": [
+      {
+        "cip_codes": [
+          "312 268-9", 
+          "34009 312 268 9 5"
+        ], 
+        "marketing_start_date": "1972-01-19", 
+        "marketing_stop_date": null, 
+        "price": 26, 
+        "refund_rate": 65, 
+        "title": "20 sachet(s)-dose(s) papier aluminium polyéthylène de 1023  mg"
+      }
+    ], 
+    "title": "ASPEGIC 500 mg, poudre pour solution buvable en sachet-dose",
+    "poster_path" : "assets/imgs/aspegic.jpg"
+  },
+  {
+    "authorization_holder": "Laboratoire INNOTECH INTERNATIONAL", 
+    "cis_code": "6 256 685 2", 
+    "composition": [
+      {
+        "components": {
+          "chlorhexidine (gluconate de)": "0,2 g", 
+          "chlorure de benzalkonium": "0,500 g"
+        }, 
+        "quantity": "100 ml", 
+        "type": "Solution"
+      }
+    ], 
+    "generic_groups": null, 
+    "iab": [
+      {
+        "abstract": "Le service médical rendu par ces spécialités reste faible dans les indications de l'AMM.", 
+        "advice": null, 
+        "reason": "Renouvellement d'inscription (CT)", 
+        "value": "Faible"
+      }
+    ], 
+    "iab_improvements": null, 
+    "id": 62566852, 
+    "presentations": [
+      {
+        "cip_codes": [
+          "348 407-9", 
+          "34009 348 407 9 1"
+        ], 
+        "marketing_start_date": "2009-11-25", 
+        "marketing_stop_date": null, 
+        "price": 223, 
+        "refund_rate": 15, 
+        "title": "1 flacon(s) PVC brun de 125 ml"
+      }, 
+      {
+        "cip_codes": [
+          "348 408-5", 
+          "34009 348 408 5 2"
+        ], 
+        "marketing_start_date": "1998-12-01", 
+        "marketing_stop_date": null, 
+        "price": 416, 
+        "refund_rate": 15, 
+        "title": "1 flacon(s) PVC brun de 300 ml"
+      }
+    ], 
+    "title": "DERMOBACTER, solution pour application cutanée",
+    "poster_path" : "assets/imgs/dermobacter.jpg"
+  },
+  {
+    "authorization_holder": "NOVARTIS EUROPHARM LTD", 
+    "cis_code": "6 005 800 8", 
+    "composition": [
+      {
+        "components": {
+          "amlodipine": "10 mg", 
+          "valsartan": "160 mg"
+        }, 
+        "quantity": "un comprimé", 
+        "type": "Comprimé"
+      }
+    ], 
+    "generic_groups": null, 
+    "iab": [
+      {
+        "abstract": "Le service médical rendu par EXFORGE reste important dans l’indication de l’AMM.", 
+        "advice": "Avis du 02/10/2013", 
+        "reason": "Renouvellement d'inscription (CT)", 
+        "value": "Important"
+      }, 
+      {
+        "abstract": "Le service médical rendu par cette spécialité est important dans le traitement de l'hypertension artérielle essentielle chez les patients dont la pression artérielle n'est pas suffisamment contrôlée sous amlodipine ou valsartan en monothérapie.", 
+        "advice": "Avis du 24/10/2007", 
+        "reason": "Inscription (CT)", 
+        "value": "Important"
+      }, 
+      {
+        "abstract": "Le service médical rendu par ces spécialités est important.", 
+        "advice": null, 
+        "reason": "Inscription (CT)", 
+        "value": "Important"
+      }
+    ], 
+    "iab_improvements": [
+      {
+        "abstract": "Absence d’amélioration du service médical rendu par cette spécialité.", 
+        "advice": "Avis du 24/10/2007", 
+        "reason": "Inscription (CT)", 
+        "value": "V (Inexistant)"
+      }, 
+      {
+        "abstract": "Les spécialités EXFORGE 5 mg/80 mg, EXFORGE 5 mg/160 mg et EXFORGE 10 mg/160 mg, associations fixes d'amlodipine 5 ou 10 mg et de valsartan 80 ou 160 mg n'apportent pas d'amélioration du service médical rendu (ASMR V) par rapport à l'utilisation conjointe de chacun de leurs composants pris séparément.", 
+        "advice": null, 
+        "reason": "Inscription (CT)", 
+        "value": "V (Inexistant)"
+      }
+    ], 
+    "id": 60058008, 
+    "presentations": [
+      {
+        "cip_codes": [
+          "378 181-9", 
+          "34009 378 181 9 3"
+        ], 
+        "marketing_start_date": "2007-08-14", 
+        "marketing_stop_date": null, 
+        "price": 6991, 
+        "refund_rate": 65, 
+        "title": "plaquette(s) thermoformée(s) PVC PVDC de 30 comprimé(s)"
+      }
+    ], 
+    "title": "EXFORGE 10 mg/160 mg, comprimé pelliculé",
+    "poster_path" : "assets/imgs/exforge.jpg"
+  }
+]

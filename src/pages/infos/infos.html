@@ -8,15 +8,16 @@
 </ion-header>
 
 <ion-content>
-
-  <button color="secondary" ion-button round  full  (click)="fetch()"><b>Lire les Infos</b></button>
-
-
-  <!-- <ion-list>
-    <ion-item>
-      <h1>data : {{data.Article}}</h1>
-      <h1>format : {{data.Référence}}</h1>
-      <h1>text : {{data.text}}</h1>
-    </ion-item>
-  </ion-list> -->
+  <ion-card *ngIf="medicaments">
+   <img [src]="medicaments.poster_path" />
+   <ion-card-header>
+     <h2>Synopsis
+       <ion-badge color="primary">{{medicaments.authorization_holder}}</ion-badge>
+     </h2>
+   </ion-card-header>
+   <ion-card-content>{{medicaments.id}}</ion-card-content>
+   <ion-card-content>{{medicaments.title}}</ion-card-content>
+   <ion-card-content>{{medicaments.price}}</ion-card-content>
+   <ion-card-content>{{medicaments.cis_code}}</ion-card-content>
+ </ion-card>
 </ion-content>

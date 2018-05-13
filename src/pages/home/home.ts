@@ -14,7 +14,7 @@ options:BarcodeScannerOptions;
 
 constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner, private toastcrtl :ToastController ) {
 
-  } 6
+  } 
 
  scan(){ 
 

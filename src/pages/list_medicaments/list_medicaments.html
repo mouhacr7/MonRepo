@@ -6,10 +6,28 @@
     <ion-title>Liste Médicaments</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content>
-
-
-  <button color="secondary" ion-button round  full  (click)="fetch()"><b>Lire les Infos</b></button>
-
+<ion-content padding>
+<ion-list>
+  <ion-item *ngIf="medicaments">
+    <ion-thumbnail item-start>
+      <ion-col col-4 *ngFor="let medicament of medicaments" (click)="goToDetail(medicament)">
+        <ion-thumbnail item-start>
+        <img [src]="medicament.poster_path" />
+        <h2>{{medicament.title}}</h2>
+        <p>{{medicament.authorization_holder}}</p>
+         </ion-thumbnail>
+      </ion-col>
+    </ion-thumbnail>
+    
+  </ion-item>
+</ion-list>
 </ion-content>
+<!-- <ion-content padding>
+  <ion-grid *ngIf="medicaments">
+    <ion-row>
+      <ion-col col-4 *ngFor="let medicament of medicaments">
+        <img [src]="medicament.poster_path" (click)="goToDetail(medicament)" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->

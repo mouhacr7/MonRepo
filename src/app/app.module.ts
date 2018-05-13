@@ -14,9 +14,10 @@ import { AboutPage } from "../pages/about/about";
 //Imports des tools de @ionic-native & @angular
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from "@angular/common/http";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
+import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments-api';
 
 //Imports tools for Headers Http Modules
 // import { HttpBackend, HttpXhrBackend } from '@angular/common/http';
@@ -37,7 +38,7 @@ import { Toast } from '@ionic-native/toast';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
+    HttpClientModule
    
   ],
   bootstrap: [IonicApp],
@@ -57,6 +58,7 @@ import { Toast } from '@ionic-native/toast';
    // {provide: HttpBackend, useClass: NativeHttpFallback, deps: [Platform, NativeHttpBackend, HttpXhrBackend]},
     BarcodeScanner,
     Toast,
+    MedicamentsApiProvider,
  
 
   ]
