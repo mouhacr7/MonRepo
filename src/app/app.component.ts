@@ -2,37 +2,39 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { HomePage } from '../pages/home/home';
 import { ListMedicamentPage } from '../pages/list_medicaments/list_medicaments';
 import { ListPharmaciePage } from '../pages/list_pharmacie/list_pharmacie';
 import { InfosPage } from '../pages/infos/infos';
 import { SignalerPage } from "../pages/signaler/signaler";
-import { AboutPage } from "../pages/about/about";
+import { ContactPage } from "../pages/contact/contact";
+import { SharePage } from "../pages/share/share";
+import { LanguagePage } from "../pages/language/language";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-
+  @ViewChild(Nav) nav: Nav;  
   rootPage: any = HomePage;
+  isSpeechAvailable = false;
+  pages: Array<{title: string, component: any,icon : string}>;
 
-  pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Acceuil', component: HomePage },
-      { title: 'Liste Médicaments', component: ListMedicamentPage },
-      { title: 'Liste Pharmacies', component: ListPharmaciePage },
-      { title: 'Infos', component: InfosPage },
-      { title: 'Signaler médicament(s) frauduleux', component: SignalerPage },
-      { title: 'A propos de nous', component: AboutPage }
-    ];
-
+      { title: '#takeCare', component: HomePage , icon : 'home' },
+      { title: 'Mes médicaments', component: ListMedicamentPage , icon : 'medkit'},
+      { title: 'Ma pharmacie', component: ListPharmaciePage , icon : 'home'},
+      { title: 'Scanner un médicament', component: InfosPage , icon : 'qr-scanner'},
+      { title: 'Signaler médicament(s) frauduleux', component: SignalerPage , icon : 'thumbs-down'},
+      { title: 'Contact', component: ContactPage , icon : 'color-wand'},
+      { title: 'Recommandé à un(e) ami(e)', component: SharePage , icon : 'share'},
+      { title: 'Changer la langue', component: LanguagePage , icon : 'switch'}
+    ]
+    console.log(this.pages)
   }
 
   initializeApp() {

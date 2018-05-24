@@ -10,7 +10,10 @@ import { ListPharmaciePage } from '../pages/list_pharmacie/list_pharmacie';
 import { InfosPage } from '../pages/infos/infos';
 import { SignalerPage } from "../pages/signaler/signaler";
 import { AboutPage } from "../pages/about/about";
-
+import { ContactPage } from "../pages/contact/contact";
+import { SharePage } from "../pages/share/share";
+import { LanguagePage } from "../pages/language/language";
+import { HTTP } from '@ionic-native/http';
 //Imports des tools de @ionic-native & @angular
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +21,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
 import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments-api';
-
+import { GoogleMaps } from '@ionic-native/google-maps';
 //Imports tools for Headers Http Modules
 // import { HttpBackend, HttpXhrBackend } from '@angular/common/http';
 // import { NativeHttpModule, NativeHttpBackend, NativeHttpFallback } from 'ionic-native-http-connection-backend';
@@ -33,7 +36,10 @@ import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments
     ListPharmaciePage,
     InfosPage,
     SignalerPage,
-    AboutPage
+    AboutPage,
+    ContactPage,
+    SharePage,
+    LanguagePage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,10 @@ import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments
     ListPharmaciePage,
     InfosPage,
     SignalerPage,
-    AboutPage
+    AboutPage,
+    ContactPage,
+    SharePage,
+    LanguagePage
   ],
   providers: [
     StatusBar,
@@ -59,8 +68,8 @@ import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments
     BarcodeScanner,
     Toast,
     MedicamentsApiProvider,
- 
-
+    GoogleMaps,
+    HTTP
   ]
 })
 export class AppModule {}

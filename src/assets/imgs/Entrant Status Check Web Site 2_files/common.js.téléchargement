@@ -1,0 +1,113 @@
+﻿function ValidateNameField(s, a) {
+    var invalidChar = false;
+    var chars = [">", "<", "}", "/", "#", "!", "\"", "&", "&amp;", "&gt;", "&lt;", "&quot;"];
+
+    var t = $('#' + s.id.replace('Validator', ''));
+
+    //check field for invalid characters
+    if (t != undefined && t.val() != null)
+    {
+        for (var i = 0; i < chars.length; i++) {
+            if (t.val().indexOf(chars[i]) > -1) {
+                invalidChar = true;
+                break;
+            }
+        }
+    }
+
+    //if validating the last name field
+    if (s.id.indexOf('txtLastName') > -1) {
+        //CheckStatus page
+        if ($('#txtCN').val() != undefined)
+        {
+            $('#txtCN').val().indexOf('2019') > -1 ? FYlabel = '2019' : FYlabel = '2018';
+        }
+        //CheckConfirmation page
+        else if ($('#2018PYLabel') != undefined && $('#2019PYLabel') != undefined) {
+            if ($('#2018PYLabel').attr('class').indexOf('active') > -1) {
+                FYlabel = '2018';
+            }
+            else {
+                FYlabel = '2019';
+            }
+        }
+
+        // check if DV year, display the corresponding error message.
+        FYlabel === '2019' ? s.errormessage = "You must provide a valid Last/Family Name<br/>" : s.errormessage = "You must provide a valid Last/Family Name (or select the 'No Last/Family Name' checkbox)<br/>";
+        FYlabel === '2019' ? s.innerHTML = "You must provide a valid Last/Family Name<br/>" : s.innerHTML = "You must provide a valid Last/Family Name (or select the 'No Last/Family Name' checkbox)<br/>";
+    }
+
+    var c = $('#cbNo' + t.attr('id').replace('txt', ''));
+
+    //if name field is null or contain invalid char(s) and checkbox is not checked
+    if ((t.val() === '' || t.val() == 'undefined' || invalidChar) && !(c.is(':checked')))
+    {
+        a.IsValid = false; //name field is invalid
+    }
+    else
+    {
+        a.IsValid = true; //name field is valid
+    }
+}
+
+function ConfirmNumberLostFocus(s, a) {
+    var c = document.getElementById('txtCN');
+
+    if (c.value.indexOf('2018') > -1) {
+        $('#ETNoLastName').show();
+        if ($('#txtLastNameValidator') != null)
+        {
+            $('#txtLastNameValidator')[0].innerHTML = "You must provide a valid Last/Family Name (or select the 'No Last/Family Name' checkbox)<br/>";
+        }
+    }
+    else if (c.value.indexOf('2019') > -1) {
+        $('#txtLastName').attr('disabled', false);
+        $('#cbNoLastName').attr('checked', false);
+        $('#ETNoLastName').hide();
+        if ($('#txtLastNameValidator') != null)
+        { 
+            $('#txtLastNameValidator')[0].innerHTML = "You must provide a valid Last/Family Name<br/>";
+        }
+    }      
+}
+
+$(document).ready(function () {
+    $('#ETNoLastName').hide();
+    $('#NoLastName').hide();
+    var FYlabel = '';
+
+    // show when postback
+    var c = document.getElementById('txtCN');
+    if (c != null && c.value.indexOf('2018') > -1) {
+        $('#ETNoLastName').show();
+    }
+
+    var a = document.getElementById('activePY');
+    if (a != null && a.value.indexOf('2018') > -1) {
+        $('#NoLastName').show();
+    }
+
+    // Forgot confirmation num - program year click
+    $('#2019PYLabel').click(function () {
+        $('#txtLastName').attr('disabled', false);
+        $('#cbNoLastName').attr('checked', false);        
+
+        $('#NoLastName').hide();
+
+        if ($('#txtLastNameValidator') != null)
+        { 
+            $('#txtLastNameValidator')[0].innerHTML = "You must provide a valid Last/Family Name<br/>";
+        }
+    });
+
+    $('#2018PYLabel').click(function () {
+        $('#NoLastName').show();
+
+        if ($('#txtLastNameValidator') != null)
+        {
+            $('#txtLastNameValidator')[0].innerHTML = "You must provide a valid Last/Family Name (or select the 'No Last/Family Name' checkbox)<br/>";
+        }
+    });
+});
+
+

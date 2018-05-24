@@ -1,0 +1,34 @@
+.mt0 { margin-top:0px; }
+.mt2 { margin-top:2px; }
+.mt5 { margin-top:5px; }
+.ml5 { margin-left:5px; }
+.ml32 { margin-left:32px; }
+.mr2 { margin-right:2px; }
+.mr5 { margin-right:5px; }
+.mr7 { margin-right:7px; }
+.mt5  { margin-top: 5px; }
+.mt10 { margin-top:10px; }
+.mt20 { margin-top:20px; }
+.mb5  { margin-bottom:5px; }
+.mb10 { margin-bottom:10px; }
+.m0000 { margin:0px 0px 0px 0px; }
+.m2222 { margin:2px 2px 2px 2px; }
+.m0050 { margin:0px 0px 5px 0px; }
+.m5555 { margin:5px 5px 5px 5px; }
+.m9090 { margin:9px 0px 9px 0px; }
+#main:focus { outline: none; }
+.inline-block { display:inline-block; }
+.valign-middle { vertical-align: middle; }
+.hddn { display: none; }
+.vddn { visibility: hidden; }
+[data-hidden="hidden"] { visibility: hidden; }
+#escform .form-control-feedback { pointer-events: auto; }
+#escform .form-control-feedback:hover { cursor: pointer; }
+
+.validatortext
+{
+	text-align:left;
+	vertical-align:middle;
+	padding-left:3px;
+	color:Red;
+}

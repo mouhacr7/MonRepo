@@ -21,7 +21,7 @@ export class MedicamentsApiProvider {
     private readonly platform: Platform
   ) {
     console.log("Hello MovieApiProvider Provider");
-    if (this.platform.is("cordova") && this.platform.is("android")) {
+    if (this.platform.is("cordova") && this.platform.is("android") || this.platform.is("cordova") && this.platform.is("ios")) {
       this.baseUrl = "/android_asset/www/assets/api/temp_medicaments.json";
     }
   }

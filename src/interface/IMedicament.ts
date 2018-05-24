@@ -1,13 +1,18 @@
 export interface IMedicament {
     authorization_holder: string;
     cis_code: string;
-    composition:{
-        components:string;
-        quantity:string;
-        type:string;
-    };
-    presentations :{price: number;
-    }
+    composition:[
+        {
+            components:string;
+            quantity:string;
+            type:string;
+        }
+    ];
+    presentations :[
+        {
+            price: number
+        }
+    ];
     title: string;
     id: number;
     poster_path: string;
