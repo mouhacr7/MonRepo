@@ -8,6 +8,11 @@
 </ion-header>
 
 <ion-content>
-
-
-</ion-content>
+  <ion-list inset>
+  <ion-item *ngFor='let medicament of medicaments'>
+     <h1>{{medicament.id}}</h1>
+     <h2>{{medicament.title}}</h2>
+     <p>{{medicament.authorization_holder}}</p>
+  </ion-item>
+  </ion-list>
+  </ion-content>

@@ -6,6 +6,7 @@ import { HomePage } from '../pages/home/home';
 import { ListMedicamentPage } from '../pages/list_medicaments/list_medicaments';
 import { ListPharmaciePage } from '../pages/list_pharmacie/list_pharmacie';
 import { InfosPage } from '../pages/infos/infos';
+import { AboutPage } from "../pages/about/about";
 import { SignalerPage } from "../pages/signaler/signaler";
 import { ContactPage } from "../pages/contact/contact";
 import { SharePage } from "../pages/share/share";
@@ -16,7 +17,7 @@ import { LanguagePage } from "../pages/language/language";
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;  
-  rootPage: any = HomePage;
+  rootPage: any = SharePage;
   isSpeechAvailable = false;
   pages: Array<{title: string, component: any,icon : string}>;
 
@@ -27,14 +28,14 @@ export class MyApp {
     this.pages = [
       { title: '#takeCare', component: HomePage , icon : 'home' },
       { title: 'Mes médicaments', component: ListMedicamentPage , icon : 'medkit'},
-      { title: 'Ma pharmacie', component: ListPharmaciePage , icon : 'home'},
-      { title: 'Scanner un médicament', component: InfosPage , icon : 'qr-scanner'},
+      { title: 'Ma pharmacie', component: ListPharmaciePage , icon : 'map'},
+    //  { title: 'Scanner un médicament', component: InfosPage , icon : 'qr-scanner'},
       { title: 'Signaler médicament(s) frauduleux', component: SignalerPage , icon : 'thumbs-down'},
-      { title: 'Contact', component: ContactPage , icon : 'color-wand'},
-      { title: 'Recommandé à un(e) ami(e)', component: SharePage , icon : 'share'},
+      { title: 'Contact', component: ContactPage , icon : 'person'},
+      { title: 'Découvrir #takeCare', component: SharePage , icon : 'color-wand'},
+      { title: 'Recommandé à un(e) ami(e)', component: AboutPage , icon : 'share'},
       { title: 'Changer la langue', component: LanguagePage , icon : 'switch'}
     ]
-    console.log(this.pages)
   }
 
   initializeApp() {

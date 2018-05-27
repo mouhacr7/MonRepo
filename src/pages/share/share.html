@@ -7,9 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>share</ion-title>
+    <ion-title></ion-title>
     <ion-buttons end>
-        <button ion-button color="primary">Skip</button>
+        <button ion-button color="primary"  (click)="loadHome()">Passer <ion-icon name="arrow-forward"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 
@@ -25,11 +25,9 @@
       <p [innerHTML]="slide.description"></p>
     </ion-slide>
     <ion-slide>
-      <ion-toolbar>
-      </ion-toolbar>
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+      <img src="assets/imgs/images.jpg" class="slide-image"/>
       <h2 class="slide-title">Aller vers #takeCare</h2>
-      <button ion-button large clear icon-end color="primary">
+      <button ion-button large clear icon-end color="primary" (click)="loadHome()">
         Continuer
         <ion-icon name="arrow-forward"></ion-icon>
       </button>

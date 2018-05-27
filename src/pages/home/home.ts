@@ -16,35 +16,67 @@ data={};
 options:BarcodeScannerOptions;
 medicaments = new Array<IMedicament>();
 
-constructor(public navCtrl: NavController,public alertCtrl : AlertController ,private barcodeScanner: BarcodeScanner, private medicamentsApiProvider: MedicamentsApiProvider,private toastcrtl :ToastController ) {
+constructor(public navCtrl: NavController,public alertCtrl : AlertController ,private barcodeScanner: BarcodeScanner, private medicamentsApiProvider: MedicamentsApiProvider,private toastCrtl :ToastController ) {
 
+  
 }
 
-  ionViewDidLoad() {
-    this.medicamentsApiProvider.getMedicaments().subscribe(data =>{
-      this.medicaments = data;
-     
-    })
+ medocLoad(idMedoc : any) {
+       //Scan Results checks with Authenticity treatment
+        
+       if(idMedoc == 3529422){
+          const alertSuccess = this.alertCtrl.create({
+            title: 'Resultats du scan',
+            subTitle: 'Medicament présent dans notre base des données,donc authentique à priori!!!',
+            buttons: ['OK']
+          });
+          // console.log(medicament.id);
+          alertSuccess.present();
+
+          let toastSuccess = this.toastCrtl.create({
+            message: 'User was added successfully',
+            duration: 7000,
+            showCloseButton:true,
+            closeButtonText:'OK'
+          });
+          toastSuccess.present();
+        }else{
+          const alertFailed = this.alertCtrl.create({
+            title: 'Resultats du scan',
+            subTitle: 'Medicament absent de notre base des données,donc non-authentique à priori!!!',
+            buttons: ['OK']
+          });
+          alertFailed.present();
+
+          let toastFailed = this.toastCrtl.create({
+            message: 'User was added successfully',
+            duration: 3000,
+            showCloseButton:true,
+            closeButtonText:'OK'
+          });
+          toastFailed.present();
+        }
   }
   
- scan(){ 
-
+ scan(){
       this.options = {
         torchOn : false,
         prompt:"Veuillez scannez le code barre ou le DATAMATRIX",
-        };
+        };        
       this.barcodeScanner.scan(this.options).then((barcodeData) =>{
+        this.medocLoad(barcodeData.text);
             // Success! Barcode data is here
-            this.data = barcodeData;
-            const alert = this.alertCtrl.create({
-              title: 'Scan Results',
-              subTitle: barcodeData.text,
-              buttons: ['OK']
-            });
-            alert.present();
+            // this.data = barcodeData;
+            // const alert = this.alertCtrl.create({
+            //   title: 'Scan Results',
+            //   subTitle: barcodeData.text,
+            //   buttons: ['OK']
+            // });
+            // alert.present();
+
             
       },(err) => {
-        this.toastcrtl.create({
+        this.toastCrtl.create({
           message : err.message
         }).present()
         // An error occured
@@ -53,5 +85,6 @@ constructor(public navCtrl: NavController,public alertCtrl : AlertController ,pr
     }
 
 }
+
 
 

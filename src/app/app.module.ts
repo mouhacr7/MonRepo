@@ -19,14 +19,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from "@angular/common/http";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Geolocation } from '@ionic-native/geolocation'; 
 import { Toast } from '@ionic-native/toast';
 import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments-api';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { RemoteServiceProvider } from '../providers/remote-service/remote-service';
+import { RestProvider } from '../providers/rest/rest';
 //Imports tools for Headers Http Modules
 // import { HttpBackend, HttpXhrBackend } from '@angular/common/http';
 // import { NativeHttpModule, NativeHttpBackend, NativeHttpFallback } from 'ionic-native-http-connection-backend';
 // import { Platform } from 'ionic-angular';
-
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+
    
   ],
   bootstrap: [IonicApp],
@@ -69,7 +72,10 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Toast,
     MedicamentsApiProvider,
     GoogleMaps,
-    HTTP
+    HTTP,
+    Geolocation,
+    RemoteServiceProvider,
+    RestProvider
   ]
 })
 export class AppModule {}

@@ -71,3 +71,89 @@ export class HomePage {
 
 
 ionic start TakeCare sidemenu
+
+
+//////////////////////////////////                  //////////////////////////////////
+ map: GoogleMap;
+
+  ionViewDidLoad() {
+    this.loadMap();
+  }
+
+  loadMap() {
+    // Create a map after the view is loaded.
+    // (platform is already ready in app.component.ts)
+    this.map = GoogleMaps.create('map_canvas', {
+      camera: {
+        target: {
+          lat: 43.0741704,
+          lng: -89.3809802
+        },
+        zoom: 18,
+        tilt: 30
+      }
+    });
+
+  }
+
+  onButtonClick() {
+    this.map.clear();
+
+    // Get the location of you
+    this.map.getMyLocation()
+      .then((location: MyLocation) => {
+        console.log(JSON.stringify(location, null ,2));
+
+        // Move the map camera to the location with animation
+        this.map.animateCamera({
+          target: location.latLng,
+          zoom: 17,
+          tilt: 30
+        })
+        .then(() => {
+          // add a marker
+          let marker: Marker = this.map.addMarkerSync({
+            title: '@ionic-native/google-maps plugin!',
+            snippet: 'This plugin is awesome!',
+            position: location.latLng,
+            animation: GoogleMapsAnimation.BOUNCE
+          });
+
+          // show the infoWindow
+          marker.showInfoWindow();
+
+          // If clicked it, display the alert
+          marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+            this.showToast('clicked!');
+          });
+        });
+      });
+  }
+
+  showToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: 'middle'
+    });
+
+    toast.present(toast);
+  }
+  ngAfterViewInit() {
+    this.platform.ready().then(() => {
+      this.loadMap();
+    });
+  }
+
+
+  ////////////////////////////////////////////           //////////////////////////////////////////
+
+
+npm install  @angular/common@5.2.10
+npm install @angular/compiler@5.2.10
+npm install @angular/compiler-cli@5.2.10
+npm install @angular/core@5.2.10
+npm install @angular/forms@5.2.10 
+npm install @angular/http@5.2.10
+npm install @angular/platform-browser@5.2.10
+npm install @angular/platform-browser-dynamic@5.2.10
