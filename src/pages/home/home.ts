@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { NavController,ToastController } from 'ionic-angular';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
-import { IMedicament }  from "../../interface/IMedicament";
 import { AlertController } from 'ionic-angular';
-//import { ListMedicamentPage } from '../../pages/list_medicaments/list_medicaments';
-import { MedicamentsApiProvider } from "../../providers/medicaments-api/medicaments-api";
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -14,11 +12,9 @@ export class HomePage {
 
 data={};
 options:BarcodeScannerOptions;
-medicaments = new Array<IMedicament>();
 
-constructor(public navCtrl: NavController,public alertCtrl : AlertController ,private barcodeScanner: BarcodeScanner, private medicamentsApiProvider: MedicamentsApiProvider,private toastCrtl :ToastController ) {
+constructor(public navCtrl: NavController,public alertCtrl : AlertController ,private barcodeScanner: BarcodeScanner, private toastCrtl :ToastController ) {
 
-  
 }
 
  medocLoad(idMedoc : any) {
@@ -30,11 +26,9 @@ constructor(public navCtrl: NavController,public alertCtrl : AlertController ,pr
             subTitle: 'Medicament présent dans notre base des données,donc authentique à priori!!!',
             buttons: ['OK']
           });
-          // console.log(medicament.id);
           alertSuccess.present();
-
           let toastSuccess = this.toastCrtl.create({
-            message: 'User was added successfully',
+            message: 'Le Scan a bien été éffectué...',
             duration: 7000,
             showCloseButton:true,
             closeButtonText:'OK'
@@ -47,9 +41,8 @@ constructor(public navCtrl: NavController,public alertCtrl : AlertController ,pr
             buttons: ['OK']
           });
           alertFailed.present();
-
           let toastFailed = this.toastCrtl.create({
-            message: 'User was added successfully',
+            message: 'Le Scan a bien été éffectué...',
             duration: 3000,
             showCloseButton:true,
             closeButtonText:'OK'
@@ -65,16 +58,6 @@ constructor(public navCtrl: NavController,public alertCtrl : AlertController ,pr
         };        
       this.barcodeScanner.scan(this.options).then((barcodeData) =>{
         this.medocLoad(barcodeData.text);
-            // Success! Barcode data is here
-            // this.data = barcodeData;
-            // const alert = this.alertCtrl.create({
-            //   title: 'Scan Results',
-            //   subTitle: barcodeData.text,
-            //   buttons: ['OK']
-            // });
-            // alert.present();
-
-            
       },(err) => {
         this.toastCrtl.create({
           message : err.message

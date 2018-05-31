@@ -10,19 +10,34 @@ import { RestProvider } from '../../providers/rest/rest';
 export class ListMedicamentPage {
   items: String[];
   medicaments : any;
+  photo_medic : any;
 constructor(public navCtrl: NavController,
             public navParams: NavParams ,
             public restProvider: RestProvider
 ) {
-
+  this.search_photos();
   this.getMedicaments();
 }
-
+search_photos(){
+  this.restProvider.getMedicaments()
+  .then(data => {
+  this.medicaments = data;
+  this.medicaments.forEach(medicament => {
+      if(medicament.poster_path){
+          console.log('photo existe..')
+      }else{
+        this.photo_medic = 'assets/imgs/logo_pharm.png'
+      }
+  });
+  });
+}
 getMedicaments() {
   this.restProvider.getMedicaments()
   .then(data => {
   this.medicaments = data;
-  console.log(this.medicaments);
+  this.medicaments.forEach(medicament => {
+
+  });
   });
   }
 

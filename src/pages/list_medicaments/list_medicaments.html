@@ -6,13 +6,8 @@
     <ion-title>Liste Médicaments</ion-title>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-      <ion-item *ngFor="let item of items">
-        {{ item }}
-      </ion-item>
-    </ion-list>
     <!-- <ion-list>
       <ion-item *ngIf="medicaments">
         <ion-thumbnail item-start>
@@ -27,7 +22,7 @@
       </ion-item>
     </ion-list> -->
 
-    <ion-card class="card card-md" *ngFor="let medicament of medicaments" (click)="goToDetail(medicament)">
+    <!-- <ion-card class="card card-md" *ngFor="let medicament of medicaments" (click)="goToDetail(medicament)">
 
         <img [src]="medicament.poster_path">
     
@@ -39,7 +34,24 @@
               <i>{{medicament.authorization_holder}}</i>
           </p>
         </ion-card-content>
-      </ion-card>
+    </ion-card> -->
+<ion-list *ngIf="medicaments">
+      <ion-item class="item item-block item-md" *ngFor="let medicament of medicaments" (click)="goToDetail(medicament)">
+          <ion-thumbnail item-start="" >
+            <div *ngIf="medicament.poster_path">
+                <img [src]="medicament.poster_path">
+            </div>
+            <div *ngIf="!medicament.poster_path">
+                <img src="assets/imgs/logo_pharm.png">
+              </div>
+             
+          </ion-thumbnail>
+       
+        <h2><b>{{medicament.title}}</b></h2>
+        <br>
+        <i>{{medicament.authorization_holder}}</i>
+  </ion-item>
+</ion-list>
 </ion-content>
 <!-- <ion-content padding>
   <ion-grid *ngIf="medicaments">

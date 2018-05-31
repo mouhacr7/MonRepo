@@ -11,13 +11,14 @@ import { Injectable } from '@angular/core';
 export class RestProvider {
   apiUrl : string;
   constructor(public http: HttpClient) {
-    this.apiUrl = 'http://localhost:3000';
+    this.apiUrl = 'http://localhost:3000/medicaments';
     console.log(this.apiUrl);
+    this.getMedicaments();
   }
 
   getMedicaments() {
     return new Promise(resolve => {
-    this.http.get(this.apiUrl+'/medicaments').subscribe(data => {
+    this.http.get(this.apiUrl).subscribe(data => {
     resolve(data);}, 
     err => {
     console.log(err);

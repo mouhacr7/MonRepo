@@ -16,6 +16,7 @@ import { LanguagePage } from "../pages/language/language";
 import { HTTP } from '@ionic-native/http';
 //Imports des tools de @ionic-native & @angular
 import { StatusBar } from '@ionic-native/status-bar';
+import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from "@angular/common/http";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -75,7 +76,8 @@ import { RestProvider } from '../providers/rest/rest';
     HTTP,
     Geolocation,
     RemoteServiceProvider,
-    RestProvider
+    RestProvider,
+    Camera
   ]
 })
 export class AppModule {}

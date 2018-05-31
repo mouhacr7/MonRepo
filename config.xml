@@ -84,7 +84,6 @@
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.1.1" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
-    <engine name="android" spec="7.0.0" />
     <engine name="ios" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.3.1">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyD6FclBwySs3RZ-tAlf0dfMzUUuX3WKehw" />
@@ -93,7 +92,8 @@
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="26.1.0" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
-    <plugin name="cordova-plugin-camera" spec="~4.0.3" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
+    <plugin name="cordova-plugin-camera" spec="~4.0.3" />
+    <engine name="android" spec="7.0.0" />
 </widget>

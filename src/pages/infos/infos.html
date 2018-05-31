@@ -7,8 +7,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
- <ion-card *ngIf="medicaments">
+<ion-content *ngIf="medicaments">
+ <ion-card>
   <img [src]="medicaments.poster_path">
 
    <ion-card-content class="card-content card-content-md">
@@ -16,27 +16,54 @@
         <b>{{medicaments.title}}</b>
     </ion-card-title>
     <p>
-        {{medicaments.authorization_holder}}
+      {{medicaments.iab[0].abstract}}
     </p>
   </ion-card-content>
 
-  <ion-row class="row" no-padding="">
-    <!-- <ion-col class="col">
-      <button clear="" color="danger" icon-start="" ion-button="" small="" class="button button-md button-clear button-clear-md button-small button-small-md button-clear-md-danger"><span class="button-inner">
-        <ion-icon name="star" role="img" class="icon icon-md ion-md-star" aria-label="star"></ion-icon>
-        {{medicaments.id}}
-      </span><div class="button-effect"></div></button>
-    </ion-col>
-    <ion-col class="col" text-center="">
-      <button clear="" color="danger" icon-start="" ion-button="" small="" class="button button-md button-clear button-clear-md button-small button-small-md button-clear-md-danger"><span class="button-inner">
-        <ion-icon name="musical-notes" role="img" class="icon icon-md ion-md-musical-notes" aria-label="musical notes"></ion-icon>
-        {{medicaments[0]}}
-      </span><div class="button-effect"></div></button>
-    </ion-col> -->
-    <ion-col class="col-md-12" text-center="">
-      <button ion-button color="secondary" outline>En savoir plus...</button>
-    </ion-col>
-   </ion-row>
+  
 
 </ion-card>
+
+  <ion-list>
+      <ion-item>
+          <i>Nom</i>
+            <button ion-button color="secondary" outline item-end >
+              <ion-icon></ion-icon>
+              <b>{{medicaments.title}}</b>
+            </button>
+      </ion-item>
+
+      <ion-item>
+          <i>Type</i> 
+        <button ion-button color="primary" outline item-end>
+            {{medicaments.composition[0].type}}
+        
+        </button>
+      </ion-item>
+      <ion-item>
+          <i>Prix</i>
+          <button ion-button color="secondary" outline item-end>
+              {{(medicaments.presentations[0].price)*425 }} €
+          </button>
+        </ion-item>
+        <ion-item>
+            <i>Composition</i>
+            <button ion-button color="danger" outline item-end>
+                {{medicaments.presentations[0].title}}
+            
+            </button>
+          </ion-item>
+      <ion-item>
+          <i>Autorisation</i> 
+        <button ion-button color="secondary" outline item-end >      
+            {{medicaments.authorization_holder}}
+        </button>
+      </ion-item>
+  </ion-list>
+
+  <ion-row class="row" no-padding="">
+      <ion-col class="col-md-12" text-center="">
+        <button (click)="InfosBase(medicaments.id)" ion-button color="secondary" round >En savoir plus...</button>
+      </ion-col>
+     </ion-row>
 </ion-content>
