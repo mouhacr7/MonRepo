@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from "@angular/common/http";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Geolocation } from '@ionic-native/geolocation'; 
+import { InAppBrowser } from '@ionic-native/in-app-browser'; 
 import { Toast } from '@ionic-native/toast';
 import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments-api';
 import { GoogleMaps } from '@ionic-native/google-maps';
@@ -77,7 +78,8 @@ import { RestProvider } from '../providers/rest/rest';
     Geolocation,
     RemoteServiceProvider,
     RestProvider,
-    Camera
+    Camera,
+    InAppBrowser
   ]
 })
 export class AppModule {}

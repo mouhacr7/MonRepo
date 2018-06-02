@@ -47,9 +47,9 @@
              
           </ion-thumbnail>
        
-        <h2><b>{{medicament.title}}</b></h2>
+        <h2><b>{{medicament.title | json}}</b></h2>
         <br>
-        <i>{{medicament.authorization_holder}}</i>
+        <i>{{medicament.authorization_holder | json}}</i>
   </ion-item>
 </ion-list>
 </ion-content>

@@ -1,15 +1,14 @@
 {
   "name": "ionic3",
-  "app_id": "",
+  "app_id": "0cd43382",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
-  ,
+  },
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://192.168.0.17/sso/public/api"
+      "proxyUrl": "http://192.168.137.1:3000/medicaments"
     }
   ]
 }

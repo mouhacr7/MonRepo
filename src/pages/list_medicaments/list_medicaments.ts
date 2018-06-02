@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams, Alert } from "ionic-angular";
 import { InfosPage } from "../infos/infos";
 import { RestProvider } from '../../providers/rest/rest';
 
@@ -15,28 +15,25 @@ constructor(public navCtrl: NavController,
             public navParams: NavParams ,
             public restProvider: RestProvider
 ) {
-  this.search_photos();
   this.getMedicaments();
 }
-search_photos(){
-  this.restProvider.getMedicaments()
-  .then(data => {
-  this.medicaments = data;
-  this.medicaments.forEach(medicament => {
-      if(medicament.poster_path){
-          console.log('photo existe..')
-      }else{
-        this.photo_medic = 'assets/imgs/logo_pharm.png'
-      }
-  });
-  });
-}
+// search_photos(){
+//   this.restProvider.getMedicaments()
+//   .then(data => {
+//   this.medicaments = data;
+//   this.medicaments.forEach(medicament => {
+  
+//   });
+//   });
+// }
 getMedicaments() {
   this.restProvider.getMedicaments()
   .then(data => {
   this.medicaments = data;
+  alert(JSON.stringify(this.medicaments))
   this.medicaments.forEach(medicament => {
-
+    //alert(JSON.stringify(this.medicaments));
+ // console.log(JSON.stringify(this.medicaments));
   });
   });
   }

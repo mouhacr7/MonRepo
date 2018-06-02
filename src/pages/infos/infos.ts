@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { IMedicament }  from "../../interface/IMedicament";
-
+import { InAppBrowser,InAppBrowserOptions } from '@ionic-native/in-app-browser'; 
 import { RestProvider } from '../../providers/rest/rest';
 
 const devise = 425;
@@ -17,7 +17,8 @@ export class InfosPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public restProvider: RestProvider
+    public restProvider: RestProvider,
+    private inAppBrowser: InAppBrowser
   ) {
     this.getPrices();
   }
@@ -39,6 +40,17 @@ export class InfosPage {
     }
 
     InfosBase(medocId : any){
-      return window.open(this.BaseMedicamentsUrl+medocId);
+      let options: InAppBrowserOptions = {
+        location:'yes',
+        clearcache: 'yes',
+        toolbar:'no',
+        zoom:'yes'
+        
+      }
+
+      // Opening a URL and returning an InAppBrowserObject
+      return this.inAppBrowser.create(this.BaseMedicamentsUrl+medocId, '_self', options);
+  
+     // Inject scripts, css and more with browser.X
     }
 }

@@ -11,19 +11,36 @@ import { Injectable } from '@angular/core';
 export class RestProvider {
   apiUrl : string;
   constructor(public http: HttpClient) {
-    this.apiUrl = 'http://localhost:3000/medicaments';
-    console.log(this.apiUrl);
+    this.apiUrl = 'http://192.168.137.1:3000/medicaments';
+    //console.log(this.apiUrl);
     this.getMedicaments();
   }
 
   getMedicaments() {
     return new Promise(resolve => {
-    this.http.get(this.apiUrl).subscribe(data => {
-    resolve(data);}, 
+    this.http.get<any>(this.apiUrl).subscribe((data : any) => {
+      
+    resolve(data);
+  }, 
     err => {
+      alert(err);
     console.log(err);
     });
     });
     }
+
+    ionViewDidLoad(){
+      return new Promise(resolve => {
+        this.http.get<any>(this.apiUrl).subscribe((data : any) => {
+          
+        resolve(data);
+      }, 
+        err => {
+         
+        console.log(err);
+        });
+        });
+    }
+
 
 }

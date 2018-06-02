@@ -17,7 +17,7 @@ import { LanguagePage } from "../pages/language/language";
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;  
-  rootPage: any = ListMedicamentPage;
+  rootPage: any = SharePage;
   isSpeechAvailable = false;
   pages: Array<{title: string, component: any,icon : string}>;
 

@@ -1,75 +1,49 @@
 import { Component , ViewChild ,ElementRef} from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-
-import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation'; 
-
 declare var google;
+
 @Component({
   selector: 'page-list_pharmacie',
   templateUrl: 'list_pharmacie.html'
 })
 export class ListPharmaciePage {
- options : GeolocationOptions;
-  currentPos : Geoposition;
-   @ViewChild('map') mapElement: ElementRef;
-    map: any;
-  constructor(public navCtrl: NavController,private geolocation : Geolocation, public platform : Platform, public navParams: NavParams,public toastCtrl: ToastController) {
-    this.getUserPosition()
+  @ViewChild('map') mapElement: ElementRef;
+  map: any;
+  start = 'chicago, il';
+  end = 'chicago, il';
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
+
+  constructor(public navCtrl: NavController) {
+
   }
 
-  getUserPosition(){
-    this.options = {
-    enableHighAccuracy : false
-    };
-    this.geolocation.getCurrentPosition(this.options).then((pos : Geoposition) => {
-  
-        this.currentPos = pos;     
-  
-        console.log(pos);
-        this.addMap(pos.coords.latitude,pos.coords.longitude);
-  
-    },(err : PositionError)=>{
-        console.log("error : " + err.message);
-    ;
-    
-    })
+  ionViewDidLoad(){
+    this.initMap();
   }
 
-   addMap(lat,long){
+  initMap() {
+    this.map = new google.maps.Map(this.mapElement.nativeElement, {
+      zoom: 7,
+      center: {lat: 41.85, lng: -87.65}
+    });
 
-    let latLng = new google.maps.LatLng(lat, long);
+    this.directionsDisplay.setMap(this.map);
+  }
 
-    let mapOptions = {
-    center: latLng,
-    zoom: 15,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
+  calculateAndDisplayRoute() {
+    this.directionsService.route({
+      origin: this.start,
+      destination: this.end,
+      travelMode: 'DRIVING'
+    }, (response, status) => {
+      if (status === 'OK') {
+        this.directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+  }
 
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    this.addMarker();
-
-}
-addMarker(){
-
-  let marker = new google.maps.Marker({
-  map: this.map,
-  animation: google.maps.Animation.DROP,
-  position: this.map.getCenter()
-  });
-
-  let content = "<p>This is your current position !</p>";          
-  let infoWindow = new google.maps.InfoWindow({
-  content: content
-  });
-
-  google.maps.event.addListener(marker, 'click', () => {
-  infoWindow.open(this.map, marker);
-  });
-
-}
-
-   ionViewDidEnter(){
-  this.getUserPosition();
-} 
 }
