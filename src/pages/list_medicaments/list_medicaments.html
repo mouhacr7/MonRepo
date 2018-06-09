@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+    <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -47,11 +47,13 @@
              
           </ion-thumbnail>
        
-        <h2><b>{{medicament.title | json}}</b></h2>
+        <h2 style="color: black"><b>{{medicament.title}}</b></h2>
         <br>
-        <i>{{medicament.authorization_holder | json}}</i>
+        <div style="color: black"><i>{{medicament.authorization_holder }}</i></div>
   </ion-item>
 </ion-list>
+
+
 </ion-content>
 <!-- <ion-content padding>
   <ion-grid *ngIf="medicaments">

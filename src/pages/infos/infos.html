@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+    <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -9,14 +9,18 @@
 
 <ion-content *ngIf="medicaments">
  <ion-card>
-  <img [src]="medicaments.poster_path">
-
+    <div *ngIf="medicaments.poster_path">
+        <img  [src]="medicaments.poster_path">
+    </div>
+    <div *ngIf="!medicaments.poster_path">
+        <img src="assets/imgs/logo_pharm.png">
+    </div>
    <ion-card-content class="card-content card-content-md">
     <ion-card-title class="card-title card-title-md">
         <b>{{medicaments.title}}</b>
     </ion-card-title>
     <p>
-      {{medicaments.iab[0].abstract}}
+      <!-- a{{medicaments.iab[0].abstract}} -->
     </p>
   </ion-card-content>
 
@@ -24,35 +28,20 @@
 
 </ion-card>
 
-  <ion-list>
-      <ion-item>
+  <ion-list style="color: black">
+      <ion-item >
           <i>Nom</i>
-            <button ion-button color="secondary" outline item-end >
-              <ion-icon></ion-icon>
+            <label ion-button color="secondary" outline item-end style="font-size: small">
               <b>{{medicaments.title}}</b>
-            </button>
+            </label>
       </ion-item>
-
-      <ion-item>
-          <i>Type</i> 
-        <button ion-button color="primary" outline item-end>
-            {{medicaments.composition[0].type}}
-        
-        </button>
-      </ion-item>
-        <ion-item>
-            <i>Composition</i>
-            <button ion-button color="danger" outline item-end>
-                {{medicaments.presentations[0].title}}
-            
-            </button>
-          </ion-item>
       <ion-item>
           <i>Autorisation</i> 
-        <button ion-button color="secondary" outline item-end >      
+        <label ion-button color="secondary" outline item-end >      
             {{medicaments.authorization_holder}}
-        </button>
+        </label>
       </ion-item>
+      
   </ion-list>
 
   <ion-row class="row" no-padding="">

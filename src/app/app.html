@@ -1,12 +1,12 @@
-<ion-menu [content]="content" >
+<ion-menu [content]="content">
 
-  <ion-content style="background: #87d567;font-style:white">
+  <ion-content no-border> 
     
     <img src="assets/imgs/images.jpg" style="height: 27%;width: 100%;">
       
-    <ion-list style="background: #87d567">
+    <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon item-start [name]="p.icon" [color]="secondary"></ion-icon>
+        <ion-icon item-start [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
     </ion-list>

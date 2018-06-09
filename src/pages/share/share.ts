@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { Nav,IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../home/home';
 /**
  * Generated class for the SharePage page.
@@ -14,8 +16,9 @@ import { HomePage } from '../home/home';
   templateUrl: 'share.html',
 })
 export class SharePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild(Nav) nav: Nav;  
+  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+ 
   }
 
   slides = [
@@ -32,12 +35,20 @@ export class SharePage {
     {
       title: "Recherche avancée",
       description: "Recherche organisée et approfondie de médicaments et reperage des pharamacies par catégorie et sous-catégorie...",
-      image: "assets/imgs/advanced-search.png",
+      image: "assets/imgs/zoom-search-2-icon.png",
     }
   ];
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
 
   loadHome() {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
 
   ionViewDidLoad() {

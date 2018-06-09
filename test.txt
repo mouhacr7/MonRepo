@@ -1,10 +1,13 @@
- ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyD6FclBwySs3RZ-tAlf0dfMzUUuX3WKehw" --variable API_KEY_FOR_IOS="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
+  ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyD6FclBwySs3RZ-tAlf0dfMzUUuX3WKehw" --variable API_KEY_FOR_IOS="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
 
+  ionic cordova plugin add  cordova-plugin-googlemaps \\ --variable API_KEY_FOR_ANDROID="AIzaSyD6FclBwySs3RZ-tAlf0dfMzUUuX3WKehw" \\ --variable API_KEY_FOR_IOS="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
 
+  ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyD6FclBwySs3RZ-tAlf0dfMzUUuX3WKehw" --variable API_KEY_FOR_IOS="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
 
- ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyD6FclBwySs3RZ-tAlf0dfMzUUuX3WKehw" --variable API_KEY_FOR_IOS="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
-
-
+  ionic cordova plugin add cordova-plugin-googlemaps
+  --variable API_KEY_FOR_ANDROID="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
+  --variable API_KEY_FOR_IOS="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
+ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI" --variable API_KEY_FOR_IOS="AIzaSyBaVYyDEdtOwrYh-mHjN6dg7AfxBt1pdgI"
   import {
   GoogleMaps,
   GoogleMap,

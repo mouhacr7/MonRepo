@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController,ToastController } from 'ionic-angular';
+import { NavController,ToastController,ModalController } from 'ionic-angular';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Toast } from '@ionic-native/toast';
 import { AlertController } from 'ionic-angular';
+import { InfosPage } from "../infos/infos";
+import { RestProvider } from '../../providers/rest/rest';
+import { ListPharmaciePage } from '../../pages/list_pharmacie/list_pharmacie';
+
 
 @Component({
   selector: 'page-home',
@@ -12,15 +16,52 @@ export class HomePage {
 
 data={};
 options:BarcodeScannerOptions;
+medicaments : any;
+section: string = 'one';
 
-constructor(public navCtrl: NavController,public alertCtrl : AlertController ,private barcodeScanner: BarcodeScanner, private toastCrtl :ToastController ) {
+constructor(public navCtrl: NavController,
+  public alertCtrl : AlertController,
+  private barcodeScanner: BarcodeScanner,
+  private toastCrtl :ToastController,
+  public restProvider: RestProvider,
+  public modalCtrl: ModalController ) {
+
+    this.getMedicaments();
+  }
+  
+  launchLocationPage(){
+ 
+    let modal = this.modalCtrl.create(ListPharmaciePage);
+
+    modal.onDidDismiss((location) => {
+        console.log(location);
+    });
+
+    modal.present();   
 
 }
+  getMedicaments() {
+    this.restProvider.getMedicaments()
+    .then(data => {
+    this.medicaments = data;
+    this.medicaments.forEach(medicament => {
+      //alert(JSON.stringify(this.medicaments));
+   // console.log(JSON.stringify(this.medicaments));
+    });
+    });
+    }
 
+    goToDetail(medicaments) {
+      this.navCtrl.push(InfosPage, medicaments);
+    }
  medocLoad(idMedoc : any) {
-       //Scan Results checks with Authenticity treatment
-        
-       if(idMedoc == 3529422){
+      
+       this.restProvider.getMedicaments()
+       .then(data => {
+       this.medicaments = data;
+       this.medicaments.forEach(medicament => {
+        //Scan Results checks with Authenticity treatment
+        if(idMedoc == 3529422){
           const alertSuccess = this.alertCtrl.create({
             title: 'Resultats du scan',
             subTitle: 'Medicament présent dans notre base des données,donc authentique à priori!!!',
@@ -33,7 +74,7 @@ constructor(public navCtrl: NavController,public alertCtrl : AlertController ,pr
             showCloseButton:true,
             closeButtonText:'OK'
           });
-          toastSuccess.present();
+         return toastSuccess.present();
         }else{
           const alertFailed = this.alertCtrl.create({
             title: 'Resultats du scan',
@@ -49,6 +90,9 @@ constructor(public navCtrl: NavController,public alertCtrl : AlertController ,pr
           });
           toastFailed.present();
         }
+           });
+       });
+      
   }
   
  scan(){
@@ -62,8 +106,6 @@ constructor(public navCtrl: NavController,public alertCtrl : AlertController ,pr
         this.toastCrtl.create({
           message : err.message
         }).present()
-        // An error occured
-        // console.log(err);
       });
     }
 

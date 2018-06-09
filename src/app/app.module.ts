@@ -20,17 +20,24 @@ import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from "@angular/common/http";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
+
+import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation'; 
 import { InAppBrowser } from '@ionic-native/in-app-browser'; 
+import { ThemeableBrowser } from '@ionic-native/themeable-browser';
 import { Toast } from '@ionic-native/toast';
 import { MedicamentsApiProvider } from '../providers/medicaments-api/medicaments-api';
-import { GoogleMaps } from '@ionic-native/google-maps';
 import { RemoteServiceProvider } from '../providers/remote-service/remote-service';
 import { RestProvider } from '../providers/rest/rest';
+import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
+import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 //Imports tools for Headers Http Modules
 // import { HttpBackend, HttpXhrBackend } from '@angular/common/http';
 // import { NativeHttpModule, NativeHttpBackend, NativeHttpFallback } from 'ionic-native-http-connection-backend';
 // import { Platform } from 'ionic-angular';
+ 
+import { ShrinkingSegmentHeaderComponent } from '../components/shrinking-segment-header/shrinking-segment-header';
 
 @NgModule({
   declarations: [
@@ -43,7 +50,8 @@ import { RestProvider } from '../providers/rest/rest';
     AboutPage,
     ContactPage,
     SharePage,
-    LanguagePage
+    LanguagePage,
+    ShrinkingSegmentHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -73,13 +81,16 @@ import { RestProvider } from '../providers/rest/rest';
     BarcodeScanner,
     Toast,
     MedicamentsApiProvider,
-    GoogleMaps,
     HTTP,
     Geolocation,
+    Network,
     RemoteServiceProvider,
     RestProvider,
     Camera,
-    InAppBrowser
+    InAppBrowser,
+    ThemeableBrowser,
+    ConnectivityServiceProvider,
+    GoogleMapsProvider
   ]
 })
 export class AppModule {}

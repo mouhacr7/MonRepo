@@ -1,3 +1,16 @@
 page-list_medicaments {
 
+    @include linear-gradient(right,$lawrencium);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.menu-inner > ion-header, 
+.menu-inner > ion-content, 
+.menu-inner > ion-footer {
+  @include linear-gradient(right,$lawrencium);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }

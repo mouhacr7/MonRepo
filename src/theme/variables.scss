@@ -4,26 +4,10 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
-
-// The app direction is used to include
-// rtl styles in your app. For more info, please see:
-// http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
-
 @import "ionic.globals";
 
-
-// Shared Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
-
-
+@import './gradient-mixins';
 
 // Named Color Variables
 // --------------------------------------------------
@@ -35,17 +19,21 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #488aff,
-  secondary:  #87d567,
+  secondary:  #67bc5c,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
   grey :      #858a87
 );
+// Shared Variables
+// --------------------------------------------------
 
-
+$text-color:         white !default;
+$link-color:         color($colors, light) !default;
+$toolbar-background: transparent !default;
+$toolbar-border-color:none;
 // App iOS Variables
 // --------------------------------------------------
-// iOS only Sass variables can go here
 
 
 
@@ -73,7 +61,6 @@ $colors: (
 
 @import "ionic.theme.default";
 
-
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
@@ -82,7 +69,7 @@ $colors: (
 @import "ionic.ionicons";
 
 
-// Fonts
+// Fonts.
 // --------------------------------------------------
 
 @import "roboto";

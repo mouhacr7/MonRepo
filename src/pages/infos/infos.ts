@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { IMedicament }  from "../../interface/IMedicament";
-import { InAppBrowser,InAppBrowserOptions } from '@ionic-native/in-app-browser'; 
+import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser';
 import { RestProvider } from '../../providers/rest/rest';
 
-const devise = 425;
 @Component({
   selector: 'page-infos',
   templateUrl: 'infos.html'
 })
 export class InfosPage {
-  medocs : any;
   medicaments: IMedicament;
  public prixMRO : number;
  BaseMedicamentsUrl = 'http://base-donnees-publique.medicaments.gouv.fr/extrait.php?specid=';
@@ -18,39 +16,72 @@ export class InfosPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public restProvider: RestProvider,
-    private inAppBrowser: InAppBrowser
-  ) {
-    this.getPrices();
-  }
+    private tbrowser : ThemeableBrowser
+  ) {}
  
   ionViewDidLoad() {
-    this.medicaments = this.navParams.data;
+       this.medicaments = this.navParams.data;
   }
-
-  getPrices() {
-    this.restProvider.getMedicaments()
-    .then(data => {
-    this.medocs = data;
-    this.medocs.forEach(medoc => {
-      
-       this.prixMRO = (medoc.presentations[0].price*devise)
-       console.log(this.prixMRO)
-    });
-    });
-    }
-
-    InfosBase(medocId : any){
-      let options: InAppBrowserOptions = {
-        location:'yes',
-        clearcache: 'yes',
-        toolbar:'no',
-        zoom:'yes'
-        
-      }
-
-      // Opening a URL and returning an InAppBrowserObject
-      return this.inAppBrowser.create(this.BaseMedicamentsUrl+medocId, '_self', options);
   
-     // Inject scripts, css and more with browser.X
+    InfosBase(medocId : any){
+      const options: ThemeableBrowserOptions = {
+        statusbar: {
+            color: '#87d567'
+        },
+        toolbar: {
+            height: 44,
+            color: '#f0f0f0ff'
+        },
+        title: {
+            color: '#003264ff',
+            showPageTitle: true
+        },
+        backButton: {
+            image: 'back',
+            imagePressed: 'back_pressed',
+            align: 'left',
+            event: 'backPressed'
+        },
+        forwardButton: {
+            image: 'forward',
+            imagePressed: 'forward_pressed',
+            align: 'left',
+            event: 'forwardPressed'
+        },
+        closeButton: {
+            image: 'close',
+            imagePressed: 'close_pressed',
+            align: 'left',
+            event: 'closePressed'
+        },
+        customButtons: [
+            {
+                image: 'share',
+                imagePressed: 'share_pressed',
+                align: 'right',
+                event: 'sharePressed'
+            }
+        ],
+        menu: {
+            image: 'menu',
+            imagePressed: 'menu_pressed',
+            title: 'Test',
+            cancel: 'Cancel',
+            align: 'right',
+            items: [
+                {
+                    event: 'helloPressed',
+                    label: 'Hello World!'
+                },
+                {
+                    event: 'testPressed',
+                    label: 'Test!'
+                }
+            ]
+        },
+        backButtonCanClose: true
+   };
+   
+   const browser: ThemeableBrowserObject = this.tbrowser.create(this.BaseMedicamentsUrl+medocId, '_blank', options);
     }
 }

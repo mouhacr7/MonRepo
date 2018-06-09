@@ -11,6 +11,7 @@ import { SignalerPage } from "../pages/signaler/signaler";
 import { ContactPage } from "../pages/contact/contact";
 import { SharePage } from "../pages/share/share";
 import { LanguagePage } from "../pages/language/language";
+import { ShrinkingSegmentHeaderComponent } from '../components/shrinking-segment-header/shrinking-segment-header';
 
 @Component({
   templateUrl: 'app.html'

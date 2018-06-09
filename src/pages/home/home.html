@@ -1,65 +1,63 @@
 <ion-header>
-  <ion-navbar color="secondary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <ion-navbar color="dark">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      Acceuil
+    </ion-title>
+</ion-navbar>
+
+<!-- <shrinking-segment-header [scrollArea]="myContent" headerHeight="150">
+    <img src="assets/imgs/images.jpg" />
+    <h2>Josh</h2>
+</shrinking-segment-header> -->
+
+<ion-toolbar color="secondary" mode="md">
+  <ion-segment color="white" mode="md" [(ngModel)]="section">
+    <ion-segment-button value="one">
+      <ion-icon name="home"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="two">
+      <ion-icon name="medkit"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card class="card card-md">
-
-    <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-      <ion-item *ngFor="let item of items">
-        {{ item }}
-      </ion-item>
-    </ion-list> -->
-    <img src="assets/imgs/takeCare.jpg">
-
-    <ion-card-content class="card-content card-content-md">
-      <ion-card-title class="card-title card-title-md">
-        <h1>Bienvenue dans <b>#TakeCare</b></h1>
-      </ion-card-title>
-      <p>
-        <b>#TakeCare</b> est une application mobile qui permet de
-        vérifier l'authenticité et la validité des médicaments.
-        Vous pouvez juste en scannant le <b>code barre</b> ou le <b>code Qr(<em>DATA-MATRIX</em>)</b>,
-        récupérer les informations du médicament.
-        
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- <ion-list>
-    <ion-item>
-      <h1>Data Status :{{data.cancelled}}</h1>
-      <h1>Data Format : {{data.format}}</h1>
-      <h1>Result Printed : {{data.text}}</h1>
+<ion-content  fullscreen #myContent>
+<div [ngSwitch]="section">
+    <ion-list *ngSwitchCase="'two'">
+        <ion-item class="item item-block item-md" *ngFor="let medicament of medicaments" (click)="goToDetail(medicament)">
+            <ion-thumbnail item-start="" >
+              <div *ngIf="medicament.poster_path">
+                  <img [src]="medicament.poster_path">
+              </div>
+              <div *ngIf="!medicament.poster_path">
+                  <img src="assets/imgs/logo_pharm.png">
+                </div>
+               
+            </ion-thumbnail>
+         
+          <h2 style="color: black"><b>{{medicament.title}}</b></h2>
+          <br>
+          <div style="color: black"><i>{{medicament.authorization_holder }}</i></div>
     </ion-item>
-  </ion-list> -->
-  <br>
-  <br>
+  </ion-list>
 
-  <!-- Real floating action button, fixed. It will not scroll with the content -->
+    <ion-list *ngSwitchCase="'one'">
+        <button ion-button (click)="launchLocationPage()">Launch</button>
+    </ion-list>
 
-  <ion-fab top right edge>
-    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list>
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-instagram"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-snapchat"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
-
+</div>
 
 </ion-content>
-<button (click)="scan()">
+
+<button (click)="scan()" style="padding-top: 250px;">
 <ion-footer >
   <ion-toolbar color="secondary">
       <ion-grid>
+        
           <ion-row>
            <img src="assets/imgs/qr_code_logo.png" width="15%" height="15%">
            <ion-title>SCANNER</ion-title>
